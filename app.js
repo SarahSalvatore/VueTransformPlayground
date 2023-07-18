@@ -26,5 +26,12 @@ Vue.createApp({
       this.rotateY = 0;
       this.rotateZ = 0;
     },
+    async copy() {
+      const text = `transform: ${this.box.transform};`;
+      // clipboard api - does not work on older browsers
+      // copies text to the users' clipboard
+      await navigator.clipboard.writeText(text);
+      alert("Copied to Clipboard");
+    },
   },
 }).mount("#app");
